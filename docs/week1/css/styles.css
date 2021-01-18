@@ -1,0 +1,17 @@
+body {
+  background-color: black;
+  max-width: 90vw;
+  margin-left: 5vw;
+  margin-top: 5vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, p {
+   color: white;
+   font-family: helvetica;
+   font-size: 18px;
+}
