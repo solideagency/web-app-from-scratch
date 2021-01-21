@@ -8,7 +8,44 @@
   var app = {
     init: function(){
       console.log("start app");
-      getData.init();
+      routes.init();
+    }
+  }
+
+  //why create a SPA?
+  //using routes for creating different pages
+  var routes = {
+    init: function(){
+      //this
+      const self = this;
+
+      //micro library
+      routie({
+        'overview': function() {
+          var route = location.hash
+          self.toggle(route)
+          getData.init();
+
+        },
+        'detail': function() {
+          var route = location.hash
+          self.toggle(route)
+        }
+      });
+    },
+    toggle: function(route){
+      this.hide()
+      this.show(route)
+    },
+    hide: function(){
+      var sections = document.querySelectorAll('section')
+      sections.forEach(function(element) {
+        //keep CSS out of JS
+        element.classList.remove('active')
+      })
+    },
+    show: function(route){
+      document.querySelector('.' + route.substring(1)).classList.add('active')
     }
   }
 
@@ -44,11 +81,12 @@
     }
   }
 
-  //render data with template literals
+  //render data with a template engine
   var renderData = {
     template: function(data){
-      var html = document.querySelector('body');
-      html.insertAdjacentHTML("afterbegin", `<p>${data.login}</p>`)
+      var html = document.querySelector('.overview');
+      //transparency library, keep HTMl out of JS
+      Transparency.render(document.querySelector('.overview'), data);
     }
   }
 
