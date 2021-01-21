@@ -58,10 +58,13 @@
       //keep your code readable
       //where to find API link and how to use it
       //take time to think first about a problem find a solution by chosing an API
-      const api = 'http://api.github.com/';
-      const method = 'users/solideagency';
+      const api = 'http://ws.audioscrobbler.com/2.0/';
+      const method = '?method=artist.getinfo';
+      var artist = '&artist=Cher';
+      const api_key = '&api_key=da09c53db6c8a9d784b1b7084b1f3a43'
+      const format = '&format=json';
 
-      return api + method;
+      return api + method + artist + api_key + format;
     },
     request: function(){
       //promise, async
@@ -84,9 +87,9 @@
   //render data with a template engine
   var renderData = {
     template: function(data){
-      var html = document.querySelector('.overview');
       //transparency library, keep HTMl out of JS
-      Transparency.render(document.querySelector('.overview'), data);
+      console.log(data.artist)
+      Transparency.render(document.querySelector('.overview'), data.artist);
     }
   }
 
