@@ -1,0 +1,28 @@
+body {
+  background-color: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, p, a {
+  color: white;
+  font-family: helvetica;
+  font-size: 18px;
+}
+
+section {
+  background-color: grey;
+  display: none;
+  max-width: 90vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 5vh;
+  min-height: 90vh;
+}
+
+.active {
+  display: block;
+}
